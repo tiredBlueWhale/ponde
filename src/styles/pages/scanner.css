@@ -1,0 +1,20 @@
+#qrResult {
+    position: absolute;
+    /* border: 1px solid red; */
+    width: 100%;
+    top: 16px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+#button_container {
+    position: absolute;
+    /* z-index: 99; */
+    /* background-color: red; */
+    /* border: 1px solid red; */
+    width: 100%;
+    bottom: 16px;
+    display: flex;
+    justify-content: center;
+}

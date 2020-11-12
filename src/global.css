@@ -1,0 +1,7 @@
+@import "./styles/style.css";
+/* Components */
+@import "./styles/components/navbar.css";
+@import "./styles/components/footer.css";
+@import "./styles/components/buttons.css";
+/* Pages */
+@import "./styles/pages/scanner.css";
