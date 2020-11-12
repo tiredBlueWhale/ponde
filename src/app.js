@@ -12,7 +12,8 @@ import Tasks from './pages/tasks.js';
 import Utils from './services/utils.js'
 
 const routes = {
-    '/': Kids,
+    // '/': Kids,
+    '/': Scanner,
     '/kids/id': KidsDetail,
     '/scanner': Scanner,
     '/tasks': Tasks,

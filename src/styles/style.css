@@ -11,7 +11,10 @@ a {
 
 html {
     overflow: hidden;
+    margin: 0;
+    padding: 0;
     height: 100%;
+    width: 100%;
     /* height: 100vh;
     display: fullscreen; */
 }
@@ -37,7 +40,8 @@ body {
     background-color: #73ff6e;
     /* margin: 0 16px; */
     grid-area: page;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow: scroll;
 }
 
 #footer_container {

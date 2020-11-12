@@ -148,9 +148,9 @@ function ECB(count, dataCodewords) {
 function ECBlocks(ecCodewordsPerBlock, ecBlocks1, ecBlocks2) {
 	this.ecCodewordsPerBlock = ecCodewordsPerBlock;
 	if (ecBlocks2)
-		this.ecBlocks = new Array(ecBlocks1, ecBlocks2);
+		this.ecBlocks = [ecBlocks1, ecBlocks2];
 	else
-		this.ecBlocks = new Array(ecBlocks1);
+		this.ecBlocks = [ecBlocks1];
 
 	this.__defineGetter__("ECCodewordsPerBlock", function () {
 		return this.ecCodewordsPerBlock;
@@ -1305,7 +1305,7 @@ function ReedSolomonDecoder(field) {
 		var numErrors = errorLocator.Degree;
 		if (numErrors == 1) {
 			// shortcut
-			return new Array(errorLocator.getCoefficient(1));
+			return [errorLocator.getCoefficient(1)];
 		}
 		var result = new Array(numErrors);
 		var e = 0;
