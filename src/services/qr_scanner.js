@@ -68,9 +68,9 @@ function getConstraints() {
     return {
         audio: false,
         video: {
-            width: { min: 400, ideal: QRScanner.width },
-            height: { min: 400, ideal: QRScanner.height },
-            facingMode: { exact: Utils.getDeviceType() ? "user" : "environment" }
+            width: QRScanner.width,
+            height: QRScanner.height,
+            facingMode: "environment" 
         }
     };
 }
