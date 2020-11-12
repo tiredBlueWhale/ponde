@@ -1,4 +1,5 @@
-import { qrcode } from './../third_party/qr_code.js'
+import Utils from './utils.js';
+import { qrcode } from './../third_party/qr_code.js';
 
 export let QRScanner = {};
 QRScanner.width = 400;
@@ -69,7 +70,7 @@ function getConstraints() {
         video: {
             width: { min: 400, ideal: QRScanner.width },
             height: { min: 400, ideal: QRScanner.height },
-            // facingMode: { exact: "environment" }
+            facingMode: { exact: Utils.getDeviceType() ? "user" : "environment" }
         }
     };
 }
