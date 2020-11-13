@@ -10,7 +10,8 @@ let Scanner = {
         let view =
         `
         <button id="button_scan_start">Start Scanning</button>
-        <video id="scanner" muted playsInline></video>
+        <!-- <video id="scanner" muted playsInline></video> -->
+        <video id="scanner"></video>
         <div id="qrResult">-</div>
         <div id="button_container">
             <button id="0" class="button_scanner active">IN</button>
