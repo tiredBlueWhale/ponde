@@ -115,6 +115,7 @@ function getConstraints() {
     // };
     return {
         audio: false,
-        video: videoResolution
+        // video: videoResolution
+        video: {facingMode: "environment"}
     };
 }
