@@ -90,6 +90,7 @@ function scanImage() {
 }
 
 function getConstraints() {
+    alert("Desktop: " + Utils.getDeviceType());
     let videoResolution = Utils.getDeviceType() ?
         {
             width: { min: 1024, ideal: 1280, max: 1920 },
@@ -97,8 +98,8 @@ function getConstraints() {
             facingMode: "user"
         } :
         {
-            width: { min: 800, ideal: 720, max: 1080 },
-            height: { min: 400, ideal: 1280, max: 1920 },
+            width: { min: 400, ideal: 720, max: 1080 },
+            height: { min: 720, ideal: 1280, max: 1920 },
             facingMode: "environment"
         };
 
