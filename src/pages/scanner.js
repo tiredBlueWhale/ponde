@@ -9,8 +9,9 @@ let Scanner = {
     render: async () => {
         let view =
         `
-        <button id="button_scan_start">Start Scanning</button>
+        
         <video id="scanner" muted playsInline></video> 
+        <button id="button_scan_start">Start Scanning</button>
         <!-- <video id="scanner"></video> -->
         <div id="qrResult">-</div>
         <div id="button_container">
@@ -54,7 +55,7 @@ function setupButtons() {
         })
     })
     document.getElementById('button_scan_start').addEventListener('click', () => {
-        QRScanner.openScanner(codeScanned);
+        QRScanner.startScanner();
     })
 }
 

@@ -33,6 +33,7 @@ QRScanner.openScanner = function (_resultFunction) {
 
     navigator.mediaDevices.getUserMedia(getConstraints()).then(stream => {
         videoElement.srcObject = stream;
+        console.log('setupStream');
         videoElement.play();
 
         if (!document.getElementById('qr_code_canvas')) {
@@ -62,8 +63,11 @@ QRScanner.pauseScanner = function () {
     if (videoElement) videoElement.pause();
 }
 
-QRScanner.startScanner = function (_resultFunction) {
-    QRScanner.openScanner(_resultFunction);
+QRScanner.startScanner = function () {
+    if (videoElement) {
+        videoElement.play()
+        document.getElementById('button_scan_start').style.display = 'none';
+    };
 }
 
 
