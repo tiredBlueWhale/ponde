@@ -42,13 +42,13 @@ QRScanner.openScanner = function (_resultFunction) {
 
             resultFunction(`Resolution: ${width} x ${height}`);
 
-            canvas          = document.createElement('canvas');
-            canvas.id       = 'qr_code_canvas';
-            canvas.width    = width;
-            canvas.height   = height
+            canvas = document.createElement('canvas');
+            canvas.id = 'qr_code_canvas';
+            canvas.width = width;
+            canvas.height = height
             ctx = canvas.getContext("2d");
         }
-       
+
         videoElement.addEventListener('play', function () {
             console.log('playing');
             scanImage();
@@ -73,8 +73,8 @@ function scanImage() {
     if (!videoElement.paused && !videoElement.ended) {
 
         ctx.drawImage(videoElement, 0, 0);
-        qrcode.width = canvas.width 
-        qrcode.height = canvas.height 
+        qrcode.width = canvas.width
+        qrcode.height = canvas.height
         qrcode.imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
         try {
             var result = qrcode.process(QRScanner.canvas);
@@ -91,15 +91,22 @@ function scanImage() {
 }
 
 function getConstraints() {
-    let videoResolution = Utils.getDeviceType() ?
-        {
-            width: { min: 1024, ideal: 1280, max: 1920 },
-            height: { min: 576, ideal: 720, max: 1080 }
-        } :
-        {
-            width: { min: 1024, ideal: 720, max: 1080 },
-            height: { min: 576, ideal: 1280, max: 1920 }
-        };
+    // let videoResolution = Utils.getDeviceType() ?
+    //     {
+    //         width: { min: 1024, ideal: 1280, max: 1920 },
+    //         height: { min: 576, ideal: 720, max: 1080 }
+    //     } :
+    //     {
+    //         width: { min: 1024, ideal: 720, max: 1080 },
+    //         height: { min: 576, ideal: 1280, max: 1920 }
+    //     };
+
+    // alert(videoResolution);
+    // console.log(videoResolution);
+    let videoResolution = {
+        width: { min: 400, ideal: 1280, max: 1920 },
+        height: { min: 400, ideal: 720, max: 1080 }
+    };
     return {
         audio: false,
         video: videoResolution,
