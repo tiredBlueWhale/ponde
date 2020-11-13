@@ -9,8 +9,9 @@ let Scanner = {
     render: async () => {
         let view =
         `
+        <button id="button_scan_start">Start Scanning</button>
+        <video id="scanner" muted playsInline></video>
         <div id="qrResult">-</div>
-        <canvas id="canvas"></canvas> 
         <div id="button_container">
             <button id="0" class="button_scanner active">IN</button>
             <button id="2" class="button_scanner">ACTIVITY</button>
@@ -21,7 +22,7 @@ let Scanner = {
     },
     after_render: async () => {
         setupScanner();
-        setupButton();
+        setupButtons();
     },
     before_close: async () => {
 
@@ -39,30 +40,10 @@ let Scanner = {
 }
 
 function setupScanner() {
-    // let pageContainer = document.getElementById("page_container");
-   
-    let canvas  = document.getElementById("canvas");
-    
-    let width   = canvas.offsetWidth;
-    let height  = canvas.offsetHeight;
-    canvas.width = width;
-    canvas.height = height;
-    console.log(width, height);
-
-    canvas.style.width = canvas.offsetWidth;
-    canvas.style.width = canvas.offsetHeight;
-    // console.log(canvas.offsetHeight);
-    // let canvas = document.createElement('canvas');
-
-    // .width = width;
-    // canvas.style.height = height;
-    // canvas.width = width;
-    // canvas.height = height;
-
-    QRScanner.openScanner(canvas.getContext('2d'), width, height, codeScanned);
+    QRScanner.openScanner(codeScanned);
 }
 
-function setupButton() {
+function setupButtons() {
     document.querySelectorAll('.button_scanner').forEach((item, i) => {
         if (i === 0) activeButton = item;
         item.addEventListener('click', function () {
@@ -70,6 +51,9 @@ function setupButton() {
             this.className += " active";
             activeButton = this;
         })
+    })
+    document.getElementById('button_scan_start').addEventListener('click', () => {
+        QRScanner.openScanner(codeScanned);
     })
 }
 

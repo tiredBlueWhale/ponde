@@ -40,8 +40,8 @@ body {
     background-color: #73ff6e;
     /* margin: 0 16px; */
     grid-area: page;
-    /* overflow: hidden; */
-    overflow: scroll;
+    overflow: hidden;
+    /* overflow: scroll; */
 }
 
 #footer_container {
