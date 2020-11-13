@@ -40,6 +40,8 @@ QRScanner.openScanner = function (_resultFunction) {
             width = stream.getTracks()[0].getSettings().width;
             height = stream.getTracks()[0].getSettings().height;
 
+            resultFunction(`Resolution: ${width} x ${height}`);
+
             canvas          = document.createElement('canvas');
             canvas.id       = 'qr_code_canvas';
             canvas.width    = width;
@@ -78,7 +80,7 @@ function scanImage() {
             var result = qrcode.process(QRScanner.canvas);
             resultFunction(result);
         } catch (err) {
-            resultFunction('No QR-Code!');
+            // resultFunction('No QR-Code!');
             // console.log(err);
             if (err !== "Couldn't find enough finder patterns")
                 new Error(err);
@@ -101,6 +103,6 @@ function getConstraints() {
     return {
         audio: false,
         video: videoResolution,
-        facingMode: "environment"
+        facingMode: "environment",
     };
 }
