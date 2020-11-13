@@ -91,25 +91,25 @@ function scanImage() {
 }
 
 function getConstraints() {
-    // let videoResolution = Utils.getDeviceType() ?
-    //     {
-    //         width: { min: 1024, ideal: 1280, max: 1920 },
-    //         height: { min: 576, ideal: 720, max: 1080 }
-    //     } :
-    //     {
-    //         width: { min: 1024, ideal: 720, max: 1080 },
-    //         height: { min: 576, ideal: 1280, max: 1920 }
-    //     };
+    let videoResolution = Utils.getDeviceType() ?
+        {
+            width: { min: 1024, ideal: 1280, max: 1920 },
+            height: { min: 576, ideal: 720, max: 1080 }
+        } :
+        {
+            width: { min: 800, ideal: 720, max: 1080 },
+            height: { min: 400, ideal: 1280, max: 1920 },
+            facingMode: {exact: "environment"}
+        };
 
     // alert(videoResolution);
     // console.log(videoResolution);
-    let videoResolution = {
-        width: { min: 400, ideal: 1280, max: 1920 },
-        height: { min: 400, ideal: 720, max: 1080 }
-    };
+    // let videoResolution = {
+    //     width: { min: 400, ideal: 1280, max: 1920 },
+    //     height: { min: 400, ideal: 720, max: 1080 }
+    // };
     return {
         audio: false,
         video: videoResolution,
-        facingMode: "environment",
     };
 }
